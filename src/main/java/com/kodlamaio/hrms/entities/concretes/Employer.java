@@ -20,6 +20,8 @@ public class Employer {
     @Column(name = "id")
     private int id;
 
+    @Column(name = "user_id")
+    private int userId;
 
     @Column(name = "company_name")
     @NotBlank
@@ -31,6 +33,10 @@ public class Employer {
     @NotNull
     private String webSite;
 
-    private String name;
+    @Column(name = "phone")
+    @NotBlank
+    @NotNull
+    private String phone;
+
 
 }
