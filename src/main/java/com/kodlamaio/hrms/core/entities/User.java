@@ -12,8 +12,8 @@ import javax.validation.constraints.NotNull;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "user")
 @Entity
-@Table(name = "users")
 public class User {
 
     @Id
@@ -21,11 +21,11 @@ public class User {
     @Column(name="id")
     private int id;
 
-    @Column(name="mail")
+    @Column(name="email")
     @Email
     @NotBlank
     @NotNull
-    private String mail;
+    private String email;
 
     @Column(name="password")
     @NotBlank
