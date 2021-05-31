@@ -7,12 +7,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user")
+@Table(name = "users")
 @Entity
 public class User {
 
@@ -21,14 +22,16 @@ public class User {
     @Column(name="id")
     private int id;
 
-    @Column(name="email")
     @Email
     @NotBlank
     @NotNull
-    private String email;
+    @NotEmpty
+    @Column(name="mail")
+    private String mail;
 
-    @Column(name="password")
+    @NotEmpty
     @NotBlank
     @NotNull
+    @Column(name="password")
     private String password;
 }
