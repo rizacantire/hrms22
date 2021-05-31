@@ -31,4 +31,6 @@ public class Employer {
     @NotNull
     private String webSite;
 
+    private String name;
+
 }
