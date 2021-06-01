@@ -1,15 +1,19 @@
 package com.kodlamaio.hrms.business.abstracts;
 
+import com.kodlamaio.hrms.core.entities.User;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
 import com.kodlamaio.hrms.entities.concretes.Employer;
-import com.kodlamaio.hrms.entities.concretes.JobAdvertisement;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
-public interface EmployerService {
-    DataResult<List<Employer>> getAll();
-    Result add(Employer employer);
+public interface SystemUserService {
+    DataResult<List<User>> getAllUsers();
 
-    Result addJobAdversitement(JobAdvertisement jobAdvertisement);
+    Result add(User user);
+
+    Result confirmEmployer(Employer employer);
+
+
 }
