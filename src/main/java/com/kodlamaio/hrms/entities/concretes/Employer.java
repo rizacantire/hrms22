@@ -1,5 +1,8 @@
 package com.kodlamaio.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.kodlamaio.hrms.core.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +16,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "employer")
+
+
 public class Employer {
 
     @Id
@@ -20,8 +25,8 @@ public class Employer {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "user_id")
-    private int userId;
+    //@Column(name = "user_id")
+    //private int userId;
 
     @Column(name = "company_name")
     @NotBlank
@@ -37,6 +42,11 @@ public class Employer {
     @NotBlank
     @NotNull
     private String phone;
+
+    @OneToOne()
+    @JsonBackReference
+    @JoinColumn(name="user_id")
+    private User user;
 
 
 }

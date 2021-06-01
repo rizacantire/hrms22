@@ -1,5 +1,9 @@
 package com.kodlamaio.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.kodlamaio.hrms.core.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "job_seeker")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class JobSeeker {
 
     @Id
@@ -21,8 +26,8 @@ public class JobSeeker {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "user_id")
-    private int userId;
+    //@Column(name = "user_id")
+    //private int userId;
 
     @NotNull
     @NotBlank
@@ -39,11 +44,15 @@ public class JobSeeker {
     @Column(name = "nationality_id")
     private String nationalityId;
 
-    @NotNull
-    @NotBlank
+
     @Column(name = "birth_date")
     private Date birthDate;
 
+
+    @OneToOne()
+    @JsonBackReference
+    @JoinColumn(name="user_id")
+    private User user;
 
 
 }

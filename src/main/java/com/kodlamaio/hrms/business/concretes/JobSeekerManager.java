@@ -1,12 +1,10 @@
 package com.kodlamaio.hrms.business.concretes;
 
 import com.kodlamaio.hrms.business.abstracts.JobSeekerService;
-import com.kodlamaio.hrms.core.utilities.results.DataResult;
-import com.kodlamaio.hrms.core.utilities.results.Result;
-import com.kodlamaio.hrms.core.utilities.results.SuccessDataResult;
-import com.kodlamaio.hrms.core.utilities.results.SuccessResult;
+import com.kodlamaio.hrms.core.utilities.results.*;
 import com.kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +14,7 @@ public class JobSeekerManager implements JobSeekerService {
 
     private JobSeekerDao jobSeekerDao;
 
+    @Autowired
     public JobSeekerManager(JobSeekerDao jobSeekerDao) {
         this.jobSeekerDao = jobSeekerDao;
     }
@@ -27,6 +26,9 @@ public class JobSeekerManager implements JobSeekerService {
 
     @Override
     public Result add(JobSeeker jobSeeker) {
+        if(this.jobSeekerDao.findAllByNationalityId(jobSeeker.getNationalityId()).stream().count() != 0){
+            return new ErrorResult("Tc No sistemde kayıtlı");
+        }
         this.jobSeekerDao.save(jobSeeker);
         return new SuccessResult("İş arayan başarıyla eklendi");
     }
