@@ -79,8 +79,23 @@ public class AuthManager implements AuthService {
         if(this.userDao.findAllByMail(employer.getMail()).stream().count() !=0){
             return new ErrorResult("Mail adresi sistemde kayıtlı");
         }else {
-            this.employerDao.save(employer);
-            return new SuccessResult("Üye kaydı gerçekleşti.");
+            if (isEmployerMailAvaible(employer)){
+                this.employerDao.save(employer);
+                return new SuccessResult("Üye kaydı gerçekleşti.");
+            }else {
+                return new ErrorResult("Domain'e kayıtlı mail adresi girmelisiniz");
+            }
+
+        }
+
+    }
+    public boolean isEmployerMailAvaible(Employer employer){
+        var checkLast =employer.getMail().split("@");
+        var check = checkLast[1].equals(employer.getWebSite());
+        if(check){
+            return true;
+        }else {
+            return false;
         }
 
     }
