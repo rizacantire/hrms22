@@ -23,7 +23,7 @@ public class VerifyCode {
     private String verifyCode;
 
     @Column(name = "is_code_verified")
-    private boolean isCodeVerified;
+    private boolean codeVerified;
 
     @Column(name = "user_id")
     private int userId;

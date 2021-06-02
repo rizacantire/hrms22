@@ -34,4 +34,10 @@ public class VerifyCodeManager implements VerifyCodeService {
     public Result verifiedCodeByUser(String code) {
         return null;
     }
+
+    @Override
+    public DataResult<VerifyCode> isVerified(int id) {
+
+        return new SuccessDataResult<VerifyCode>(this.verifyCodeDao.findVerifyCodeByUserId(id));
+    }
 }

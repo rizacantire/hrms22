@@ -5,5 +5,5 @@ import com.kodlamaio.hrms.entities.concretes.VerifyCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface VerifyCodeDao extends JpaRepository<VerifyCode,Integer> {
-    //DataResult<VerifyCode> findVerifyCodesByUserId(int id);
+    VerifyCode findVerifyCodeByUserId(int id);
 }

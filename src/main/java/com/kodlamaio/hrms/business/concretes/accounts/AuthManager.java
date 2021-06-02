@@ -89,11 +89,18 @@ public class AuthManager implements AuthService {
     public Result loginDtoMail(UserLoginDto userLoginDto) {
         User mailCheck = userDao.findByMail(userLoginDto.getMail());
 
+
+
         if(mailCheck == null){
             return new ErrorResult("Mail adresi sistemde kayıtlı değil");
         }
         if (mailCheck.getMail().equals(userLoginDto.getMail()) & mailCheck.getPassword().equals(userLoginDto.getPassword())){
-            return new SuccessResult("giriş başarılı");
+            if (checkCode(mailCheck.getUserId())==true){
+                return new SuccessResult("giriş başarılı");
+            }else {
+                return new ErrorResult("Doğrulama yapılmamış hesap");
+            }
+
         }else {
             return new ErrorResult("Hatalı giriş");
         }
@@ -105,5 +112,35 @@ public class AuthManager implements AuthService {
 
         return null;
     }
+
+    @Override
+    public DataResult<VerifyCode> getCode(int id) {
+
+        return new SuccessDataResult<VerifyCode>(this.verifyCodeDao.findVerifyCodeByUserId(id));
+    }
+
+    @Override
+    public boolean checkCode(int id) {
+        var codes = getCode(id);
+        if (codes.getData().isCodeVerified() == true){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @Override
+    public Result verifyCode(String code,int id) {
+        var codes = getCode(id);
+        if(codes.getData().getVerifyCode().equals(code)){
+            codes.getData().setCodeVerified(true);
+            this.verifyCodeDao.save(codes.getData());
+            return new SuccessResult("Doğrulama başarılı");
+        }else {
+
+            return new ErrorResult("Doğrulama kodu hatalı");
+        }
+    }
+
 
 }

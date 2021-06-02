@@ -26,6 +26,12 @@ public interface AuthService {
 
     Result loginDtoMail(UserLoginDto userLoginDto);
 
+    DataResult<VerifyCode> getCode(int id);
+
+    boolean checkCode(int id);
+
+    Result verifyCode(String code,int id);
+
 
 
 }

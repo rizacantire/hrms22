@@ -9,6 +9,7 @@ import com.kodlamaio.hrms.entities.concretes.Employer;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;
 
 import com.kodlamaio.hrms.entities.dtos.UserLoginDto;
+import com.kodlamaio.hrms.entities.dtos.VerifyCodeUserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -58,6 +59,18 @@ public class AuthsConroller {
     public ResponseEntity<?> loginDtoMail(@Valid @RequestBody UserLoginDto userLoginDto){
         return ResponseEntity.ok(authService.loginDtoMail(userLoginDto));
     }
+
+    @PostMapping("getCode")
+    public ResponseEntity<?> getCode(@Valid @RequestBody int id){
+        return ResponseEntity.ok(authService.getCode(id));
+    }
+
+    @PostMapping("verifyCode")
+    public ResponseEntity<?> verifyCode(@Valid @RequestBody VerifyCodeUserDto verifyCodeUserDto){
+        return ResponseEntity.ok(authService.verifyCode(verifyCodeUserDto.getCode(),verifyCodeUserDto.getId()));
+    }
+
+
 
 
 

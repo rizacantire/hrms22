@@ -9,5 +9,6 @@ import com.kodlamaio.hrms.entities.concretes.VerifyCode;
 public interface VerifyCodeService {
     DataResult<VerifyCode> sendCode(VerifyCode verifyCode);
     Result verifiedCodeByUser(String code);
+    DataResult<VerifyCode> isVerified(int id);
 
 }
