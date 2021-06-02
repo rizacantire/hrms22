@@ -1,6 +1,6 @@
 package com.kodlamaio.hrms.api.controllers;
 
-import com.kodlamaio.hrms.business.abstracts.JobSeekerService;
+import com.kodlamaio.hrms.business.abstracts.accounts.JobSeekerService;
 import com.kodlamaio.hrms.core.utilities.results.ErrorDataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;

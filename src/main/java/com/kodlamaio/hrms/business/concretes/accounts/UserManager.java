@@ -1,12 +1,13 @@
-package com.kodlamaio.hrms.business.concretes;
+package com.kodlamaio.hrms.business.concretes.accounts;
 
-import com.kodlamaio.hrms.business.abstracts.UserService;
+import com.kodlamaio.hrms.business.abstracts.accounts.UserService;
 import com.kodlamaio.hrms.core.dataAccess.UserDao;
 import com.kodlamaio.hrms.core.entities.User;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
 import com.kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import com.kodlamaio.hrms.core.utilities.results.SuccessResult;
+import com.kodlamaio.hrms.entities.concretes.VerifiedUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,4 +39,5 @@ public class UserManager implements UserService {
     public DataResult<List<User>> getAll() {
         return new SuccessDataResult<List<User>>(this.userDao.findAll());
     }
+
 }

@@ -1,15 +1,14 @@
 package com.kodlamaio.hrms.api.controllers;
 
-import com.kodlamaio.hrms.business.abstracts.AuthService;
-import com.kodlamaio.hrms.business.abstracts.EmployerService;
-import com.kodlamaio.hrms.business.abstracts.JobSeekerService;
+import com.kodlamaio.hrms.business.abstracts.accounts.AuthService;
 import com.kodlamaio.hrms.core.entities.User;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.ErrorDataResult;
-import com.kodlamaio.hrms.core.utilities.results.Result;
+
 import com.kodlamaio.hrms.entities.concretes.Employer;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;
-import io.swagger.models.Response;
+
+import com.kodlamaio.hrms.entities.dtos.UserLoginDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -51,6 +50,13 @@ public class AuthsConroller {
     @GetMapping("alluser")
     public DataResult getAll(){
         return this.authService.getAll();
+    }
+
+
+
+    @PostMapping("loginDtoMail")
+    public ResponseEntity<?> loginDtoMail(@Valid @RequestBody UserLoginDto userLoginDto){
+        return ResponseEntity.ok(authService.loginDtoMail(userLoginDto));
     }
 
 

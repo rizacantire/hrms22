@@ -18,13 +18,12 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "job_seeker")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class JobSeeker {
+@PrimaryKeyJoinColumn(name="job_seeker_id",referencedColumnName = "user_id")
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private int id;
+
+public class JobSeeker extends User {
+
+
 
     //@Column(name = "user_id")
     //private int userId;
@@ -49,10 +48,6 @@ public class JobSeeker {
     private Date birthDate;
 
 
-    @OneToOne()
-    @JsonBackReference
-    @JoinColumn(name="user_id")
-    private User user;
 
 
 }

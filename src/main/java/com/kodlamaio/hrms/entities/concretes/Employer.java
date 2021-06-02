@@ -16,14 +16,10 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "employer")
+@PrimaryKeyJoinColumn(name="employer_id",referencedColumnName = "user_id")
 
+public class Employer extends User {
 
-public class Employer {
-
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private int id;
 
     //@Column(name = "user_id")
     //private int userId;
@@ -43,10 +39,6 @@ public class Employer {
     @NotNull
     private String phone;
 
-    @OneToOne()
-    @JsonBackReference
-    @JoinColumn(name="user_id")
-    private User user;
 
 
 }

@@ -1,10 +1,9 @@
 package com.kodlamaio.hrms.api.controllers;
 
-import com.kodlamaio.hrms.business.abstracts.UserService;
+import com.kodlamaio.hrms.business.abstracts.accounts.UserService;
 import com.kodlamaio.hrms.core.entities.User;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.ErrorDataResult;
-import com.kodlamaio.hrms.core.utilities.results.Result;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

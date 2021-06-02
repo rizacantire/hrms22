@@ -5,20 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "system_user")
-public class SystemUser extends User {
+@Table(name = "activate_user")
+public class ActivateUser extends User {
 
-
-    @Column(name = "id")
-    private int id;
-
-    @Column(name = "role")
-    private String role;
-
+    @Column(name = "is_active")
+    private boolean isActive;
 }

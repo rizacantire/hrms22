@@ -1,4 +1,4 @@
-package com.kodlamaio.hrms.business.abstracts;
+package com.kodlamaio.hrms.business.abstracts.accounts;
 
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;

@@ -1,6 +1,6 @@
-package com.kodlamaio.hrms.business.concretes;
+package com.kodlamaio.hrms.business.concretes.accounts;
 
-import com.kodlamaio.hrms.business.abstracts.EmployerService;
+import com.kodlamaio.hrms.business.abstracts.accounts.EmployerService;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
 import com.kodlamaio.hrms.core.utilities.results.SuccessDataResult;
