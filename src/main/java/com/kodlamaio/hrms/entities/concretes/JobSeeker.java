@@ -18,7 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "job_seeker")
-@PrimaryKeyJoinColumn(name="job_seeker_id",referencedColumnName = "user_id")
+@PrimaryKeyJoinColumn(name="user_id",referencedColumnName = "user_id")
 
 
 public class JobSeeker extends User {
@@ -43,10 +43,8 @@ public class JobSeeker extends User {
     @Column(name = "nationality_id")
     private String nationalityId;
 
-
     @Column(name = "birth_date")
     private Date birthDate;
-
 
 
 

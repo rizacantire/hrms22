@@ -12,6 +12,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "system_user")
+@PrimaryKeyJoinColumn(name="user_id",referencedColumnName = "user_id")
+
 public class SystemUser extends User {
 
 

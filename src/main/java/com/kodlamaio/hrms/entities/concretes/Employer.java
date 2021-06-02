@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "employer")
-@PrimaryKeyJoinColumn(name="employer_id",referencedColumnName = "user_id")
+@PrimaryKeyJoinColumn(name="user_id",referencedColumnName = "user_id")
 
 public class Employer extends User {
 

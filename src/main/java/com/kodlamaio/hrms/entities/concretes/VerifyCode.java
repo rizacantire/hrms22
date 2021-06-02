@@ -11,15 +11,23 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "verify_codes")
-@PrimaryKeyJoinColumn(name="verify_code_id",referencedColumnName = "user_id")
-public class VerifyCode extends User {
+@Entity
+public class VerifyCode {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "verify_code")
     private String verifyCode;
 
     @Column(name = "is_code_verified")
     private boolean isCodeVerified;
+
+    @Column(name = "user_id")
+    private int userId;
+
 
 
 }
