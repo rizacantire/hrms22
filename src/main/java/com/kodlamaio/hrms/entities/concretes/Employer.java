@@ -39,6 +39,9 @@ public class Employer extends User {
     @NotNull
     private String phone;
 
+    @Column(name = "is_activated")
+    private boolean isActivated;
+
 
 
 }

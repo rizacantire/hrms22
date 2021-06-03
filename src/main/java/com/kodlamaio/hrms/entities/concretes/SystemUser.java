@@ -23,4 +23,7 @@ public class SystemUser extends User {
     @Column(name = "role")
     private String role;
 
+    @Column(name = "is_admin")
+    private boolean isAdmin;
+
 }

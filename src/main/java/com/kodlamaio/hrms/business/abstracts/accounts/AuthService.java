@@ -24,7 +24,9 @@ public interface AuthService {
     Result registeryEmployer(Employer employer);
 
 
-    Result loginDtoMail(UserLoginDto userLoginDto);
+    Result loginJobSeekerDto(UserLoginDto userLoginDto);
+
+    Result loginEmployerDto(UserLoginDto userLoginDto);
 
     DataResult<VerifyCode> getCode(int id);
 

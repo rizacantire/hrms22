@@ -101,7 +101,7 @@ public class AuthManager implements AuthService {
     }
 
     @Override
-    public Result loginDtoMail(UserLoginDto userLoginDto) {
+    public Result loginJobSeekerDto(UserLoginDto userLoginDto) {
         User mailCheck = userDao.findByMail(userLoginDto.getMail());
 
 
@@ -111,6 +111,27 @@ public class AuthManager implements AuthService {
         }
         if (mailCheck.getMail().equals(userLoginDto.getMail()) & mailCheck.getPassword().equals(userLoginDto.getPassword())){
             if (checkCode(mailCheck.getUserId())==true){
+                return new SuccessResult("giriş başarılı");
+            }else {
+                return new ErrorResult("Doğrulama yapılmamış hesap");
+            }
+
+        }else {
+            return new ErrorResult("Hatalı giriş");
+        }
+    }
+
+    @Override
+    public Result loginEmployerDto(UserLoginDto userLoginDto) {
+        User mailCheck = userDao.findByMail(userLoginDto.getMail());
+
+
+
+        if(mailCheck == null){
+            return new ErrorResult("Mail adresi sistemde kayıtlı değil");
+        }
+        if (mailCheck.getMail().equals(userLoginDto.getMail()) & mailCheck.getPassword().equals(userLoginDto.getPassword())){
+            if (checkActivation(mailCheck.getUserId())==true){
                 return new SuccessResult("giriş başarılı");
             }else {
                 return new ErrorResult("Doğrulama yapılmamış hesap");
@@ -142,6 +163,12 @@ public class AuthManager implements AuthService {
         }else {
             return false;
         }
+    }
+
+    public boolean checkActivation(int id){
+        var accounts = this.employerDao.findById(id);
+        return accounts.get().isActivated();
+
     }
 
     @Override

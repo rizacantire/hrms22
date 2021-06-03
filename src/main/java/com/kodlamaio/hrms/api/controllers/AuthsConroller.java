@@ -1,10 +1,13 @@
 package com.kodlamaio.hrms.api.controllers;
 
 import com.kodlamaio.hrms.business.abstracts.accounts.AuthService;
+import com.kodlamaio.hrms.core.business.abstracts.ResponseErrorService;
+import com.kodlamaio.hrms.core.business.concretes.ResponseErrorManager;
 import com.kodlamaio.hrms.core.entities.User;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.ErrorDataResult;
 
+import com.kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
 import com.kodlamaio.hrms.entities.concretes.Employer;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;
 
@@ -28,9 +31,9 @@ public class AuthsConroller {
 
     @Autowired
     public AuthsConroller(AuthService authService) {
+
         this.authService = authService;
     }
-
     @PostMapping("registery")
     public ResponseEntity<?> registery(@Valid @RequestBody User user){
 
@@ -49,15 +52,22 @@ public class AuthsConroller {
         return ResponseEntity.ok(this.authService.registeryEmployer(employer));
     }
     @GetMapping("alluser")
-    public DataResult getAll(){
-        return this.authService.getAll();
+    public ResponseEntity<?> getAll(){
+
+        return ResponseEntity.ok(this.authService.getAll());
+    }
+
+    @PostMapping("loginEmployer")
+    public ResponseEntity<?> loginEmployer(@Valid @RequestBody UserLoginDto userLoginDto){
+
+        return ResponseEntity.ok(this.authService.loginEmployerDto(userLoginDto));
     }
 
 
 
     @PostMapping("loginDtoMail")
     public ResponseEntity<?> loginDtoMail(@Valid @RequestBody UserLoginDto userLoginDto){
-        return ResponseEntity.ok(authService.loginDtoMail(userLoginDto));
+        return ResponseEntity.ok(authService.loginJobSeekerDto(userLoginDto));
     }
 
     @PostMapping("getCode")
@@ -69,10 +79,6 @@ public class AuthsConroller {
     public ResponseEntity<?> verifyCode(@Valid @RequestBody VerifyCodeUserDto verifyCodeUserDto){
         return ResponseEntity.ok(authService.verifyCode(verifyCodeUserDto.getCode(),verifyCodeUserDto.getId()));
     }
-
-
-
-
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
