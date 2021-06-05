@@ -15,7 +15,7 @@ public class CitiesController {
 
     private CityService cityService;
 
-    public CitiesController(CityService cityService) {
+    public CitiesController( CityService cityService) {
         this.cityService = cityService;
     }
 

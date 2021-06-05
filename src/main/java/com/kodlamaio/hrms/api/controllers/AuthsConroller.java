@@ -1,15 +1,11 @@
 package com.kodlamaio.hrms.api.controllers;
 
 import com.kodlamaio.hrms.business.abstracts.accounts.AuthService;
-import com.kodlamaio.hrms.core.business.abstracts.ResponseErrorService;
-import com.kodlamaio.hrms.core.business.concretes.ResponseErrorManager;
 import com.kodlamaio.hrms.core.entities.User;
-import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.ErrorDataResult;
 
-import com.kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
-import com.kodlamaio.hrms.entities.concretes.Employer;
-import com.kodlamaio.hrms.entities.concretes.JobSeeker;
+import com.kodlamaio.hrms.entities.concretes.users.Employer;
+import com.kodlamaio.hrms.entities.concretes.users.JobSeeker;
 
 import com.kodlamaio.hrms.entities.dtos.UserLoginDto;
 import com.kodlamaio.hrms.entities.dtos.VerifyCodeUserDto;

@@ -2,7 +2,7 @@ package com.kodlamaio.hrms.business.abstracts.accounts;
 
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
-import com.kodlamaio.hrms.entities.concretes.Employer;
+import com.kodlamaio.hrms.entities.concretes.users.Employer;
 import com.kodlamaio.hrms.entities.concretes.JobAdvertisement;
 
 import java.util.List;

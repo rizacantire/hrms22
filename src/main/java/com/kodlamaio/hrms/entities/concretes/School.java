@@ -9,14 +9,18 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "schools")
 @Entity
-@Table(name = "city")
-public class City {
+public class School {
+
     @Id
     @GeneratedValue
     @Column(name = "id")
     private int id;
 
-    @Column(name = "name")
+    @Column(name = "school_name")
     private String name;
+
+    @Column(name = "school_department")
+    private String schoolDepartment;
 }

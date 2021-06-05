@@ -1,12 +1,11 @@
 package com.kodlamaio.hrms.business.concretes;
 
 import com.kodlamaio.hrms.business.abstracts.VerifyCodeService;
-import com.kodlamaio.hrms.core.entities.User;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
 import com.kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import com.kodlamaio.hrms.dataAccess.abstracts.VerifyCodeDao;
-import com.kodlamaio.hrms.entities.concretes.VerifyCode;
+import com.kodlamaio.hrms.entities.concretes.users.VerifyCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,7 @@ package com.kodlamaio.hrms.business.abstracts.accounts;
 
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
-import com.kodlamaio.hrms.entities.concretes.JobSeeker;
+import com.kodlamaio.hrms.entities.concretes.users.JobSeeker;
 
 
 import java.util.List;

@@ -3,8 +3,7 @@ package com.kodlamaio.hrms.business.concretes.accounts;
 import com.kodlamaio.hrms.business.abstracts.accounts.JobSeekerService;
 import com.kodlamaio.hrms.core.utilities.results.*;
 import com.kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
-import com.kodlamaio.hrms.entities.concretes.JobSeeker;
-import com.kodlamaio.hrms.entities.dtos.UserVerifiedDto;
+import com.kodlamaio.hrms.entities.concretes.users.JobSeeker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

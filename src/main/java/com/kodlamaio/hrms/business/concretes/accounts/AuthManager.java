@@ -1,6 +1,5 @@
 package com.kodlamaio.hrms.business.concretes.accounts;
 
-import com.kodlamaio.hrms.business.abstracts.VerifyCodeService;
 import com.kodlamaio.hrms.business.abstracts.accounts.AuthService;
 import com.kodlamaio.hrms.core.dataAccess.UserDao;
 import com.kodlamaio.hrms.core.entities.User;
@@ -8,9 +7,9 @@ import com.kodlamaio.hrms.core.utilities.results.*;
 import com.kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
 import com.kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import com.kodlamaio.hrms.dataAccess.abstracts.VerifyCodeDao;
-import com.kodlamaio.hrms.entities.concretes.Employer;
-import com.kodlamaio.hrms.entities.concretes.JobSeeker;
-import com.kodlamaio.hrms.entities.concretes.VerifyCode;
+import com.kodlamaio.hrms.entities.concretes.users.Employer;
+import com.kodlamaio.hrms.entities.concretes.users.JobSeeker;
+import com.kodlamaio.hrms.entities.concretes.users.VerifyCode;
 import com.kodlamaio.hrms.entities.dtos.UserLoginDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

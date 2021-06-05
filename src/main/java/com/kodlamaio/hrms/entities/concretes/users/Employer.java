@@ -1,4 +1,4 @@
-package com.kodlamaio.hrms.entities.concretes;
+package com.kodlamaio.hrms.entities.concretes.users;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;

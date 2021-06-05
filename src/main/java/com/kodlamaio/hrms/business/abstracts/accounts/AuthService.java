@@ -3,9 +3,9 @@ package com.kodlamaio.hrms.business.abstracts.accounts;
 import com.kodlamaio.hrms.core.entities.User;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
-import com.kodlamaio.hrms.entities.concretes.Employer;
-import com.kodlamaio.hrms.entities.concretes.JobSeeker;
-import com.kodlamaio.hrms.entities.concretes.VerifyCode;
+import com.kodlamaio.hrms.entities.concretes.users.Employer;
+import com.kodlamaio.hrms.entities.concretes.users.JobSeeker;
+import com.kodlamaio.hrms.entities.concretes.users.VerifyCode;
 import com.kodlamaio.hrms.entities.dtos.UserLoginDto;
 
 import java.util.List;

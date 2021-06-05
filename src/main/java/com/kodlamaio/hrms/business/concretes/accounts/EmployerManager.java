@@ -7,7 +7,7 @@ import com.kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import com.kodlamaio.hrms.core.utilities.results.SuccessResult;
 import com.kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
 import com.kodlamaio.hrms.dataAccess.abstracts.JobAdvertisementDao;
-import com.kodlamaio.hrms.entities.concretes.Employer;
+import com.kodlamaio.hrms.entities.concretes.users.Employer;
 import com.kodlamaio.hrms.entities.concretes.JobAdvertisement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

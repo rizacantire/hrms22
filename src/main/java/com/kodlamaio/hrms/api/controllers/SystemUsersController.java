@@ -2,8 +2,7 @@ package com.kodlamaio.hrms.api.controllers;
 
 import com.kodlamaio.hrms.business.abstracts.accounts.SystemUserService;
 import com.kodlamaio.hrms.core.utilities.results.ErrorDataResult;
-import com.kodlamaio.hrms.entities.concretes.Employer;
-import com.kodlamaio.hrms.entities.concretes.SystemUser;
+import com.kodlamaio.hrms.entities.concretes.users.SystemUser;
 import com.kodlamaio.hrms.entities.dtos.UserLoginDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

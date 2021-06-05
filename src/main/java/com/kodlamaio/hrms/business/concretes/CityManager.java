@@ -1,10 +1,7 @@
 package com.kodlamaio.hrms.business.concretes;
 
 import com.kodlamaio.hrms.business.abstracts.CityService;
-import com.kodlamaio.hrms.core.utilities.results.DataResult;
-import com.kodlamaio.hrms.core.utilities.results.Result;
-import com.kodlamaio.hrms.core.utilities.results.SuccessDataResult;
-import com.kodlamaio.hrms.core.utilities.results.SuccessResult;
+import com.kodlamaio.hrms.core.utilities.results.*;
 import com.kodlamaio.hrms.dataAccess.abstracts.CityDao;
 import com.kodlamaio.hrms.entities.concretes.City;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +22,17 @@ public class CityManager implements CityService {
 
     @Override
     public Result add(City city) {
-        this.cityDao.save(city);
-        return new SuccessResult("üye Kaydedildi");
+        var result = this.cityDao.findAllByName(city.getName());
+        if (result == null){
+            this.cityDao.save(city);
+            return new SuccessResult("Şehir ismi sisteme kaydedildi Kaydedildi");
+
+        }else {
+            System.out.println(result);
+            return new ErrorResult("Şehir ismi sistemde kayıtlı");
+
+        }
+
     }
 
 

@@ -1,4 +1,4 @@
-package com.kodlamaio.hrms.entities.concretes;
+package com.kodlamaio.hrms.entities.concretes.users;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -7,6 +7,7 @@ import com.kodlamaio.hrms.core.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -20,13 +21,8 @@ import java.util.Date;
 @Table(name = "job_seeker")
 @PrimaryKeyJoinColumn(name="user_id",referencedColumnName = "user_id")
 
-
 public class JobSeeker extends User {
 
-
-
-    //@Column(name = "user_id")
-    //private int userId;
 
     @NotNull
     @NotBlank
