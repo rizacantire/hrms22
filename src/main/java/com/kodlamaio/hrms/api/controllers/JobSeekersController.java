@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +33,12 @@ public class JobSeekersController {
     @PostMapping(name = "registery")
     public ResponseEntity<?> registery(@RequestBody JobSeeker jobSeeker){
         return ResponseEntity.ok(this.jobSeekerService.add(jobSeeker));
+    }
+
+    @RequestMapping(value = "/uploadImage", method = RequestMethod.POST, consumes = { "multipart/form-data" })
+    @ResponseBody
+    public Result uploadImage(@RequestParam int id, @RequestPart("file") MultipartFile image) {
+        return this.jobSeekerService.addImage(id, image);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

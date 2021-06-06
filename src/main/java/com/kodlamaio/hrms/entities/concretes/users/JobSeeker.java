@@ -42,6 +42,18 @@ public class JobSeeker extends User {
     @Column(name = "birth_date")
     private Date birthDate;
 
+    @Column(name = "picture")
+    private String picture;
+
+    @Column(name = "github")
+    private String github;
+
+    @Column(name = "linkedin ")
+    private String linkedin;
+
+    @Column(name = "description")
+    private String description;
+
 
 
 }

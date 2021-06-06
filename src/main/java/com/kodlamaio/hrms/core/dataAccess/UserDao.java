@@ -8,4 +8,5 @@ import java.util.List;
 public interface UserDao extends JpaRepository<User, Integer> {
     User findByMail(String mail);
     List<User> findAllByMail(String mail);
+
 }
