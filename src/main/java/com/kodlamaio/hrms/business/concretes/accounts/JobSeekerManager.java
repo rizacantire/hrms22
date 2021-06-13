@@ -18,11 +18,12 @@ public class JobSeekerManager implements JobSeekerService {
     private JobSeekerDao jobSeekerDao;
     private ImageUploadService imageUploadService;
 
+    @Autowired
     public JobSeekerManager(JobSeekerDao jobSeekerDao) {
 
         this.jobSeekerDao = jobSeekerDao;
     }
-    @Autowired
+
     public JobSeekerManager(JobSeekerDao jobSeekerDao,ImageUploadService imageUploadService) {
 
         this.jobSeekerDao = jobSeekerDao;
@@ -47,7 +48,7 @@ public class JobSeekerManager implements JobSeekerService {
     public Result addImage(int id, MultipartFile image) {
         Map<String, String> result = imageUploadService.uploadImage(image).getData();
         String url = result.get("url");
-        var jobSeeker = this.jobSeekerDao.findByJobSeekerId(id);
+        var jobSeeker = this.jobSeekerDao.findById(id);
         jobSeeker.setPicture(url);
         this.jobSeekerDao.save(jobSeeker);
         return new SuccessResult("Resim Ekleme Başarılı");

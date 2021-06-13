@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface LanguageDao  extends JpaRepository<Language,Integer> {
-    Language findByName(String name);
-    Language findByJobSeekerId(int id);
+
+    Language findById(int id);
 }
